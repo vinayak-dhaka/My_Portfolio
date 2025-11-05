@@ -5,7 +5,7 @@ const Header = () => {
     <header className="header">
       <nav className="headertop">
         <div>
-          <h1 className="nameele">vinayak.dev</h1>
+          <h1 className="nameele">vinayakdev.in</h1>
         </div>
         <div className="btn">
           <a href="#home" className="btn-1">
