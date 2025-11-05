@@ -42,7 +42,7 @@ const Chatbox = () => {
     setMessages((prev) => [...prev, userMessage]);
 
     try {
-      const res = await fetch("AiSelfAssistant-env.eba-cjs3w2bs.ap-south-1.elasticbeanstalk.com/api/chat", {
+      const res = await fetch("d1l101p57wcwe7.cloudfront.net/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userInput }),
