@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Certifications from "./components/Certifications";
 import Education from "./components/Education";
 import Chatbox from "./components/Chatbox";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./index.css";
 
 function App() {
