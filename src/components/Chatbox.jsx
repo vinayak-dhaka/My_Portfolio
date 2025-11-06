@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Chatbox = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,9 +11,16 @@ const Chatbox = () => {
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
 
+
+  const bottomRef = useRef(null);
+
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, isTyping]);
+
   const simulateTyping = async (fullText) => {
     setIsTyping(true);
-
     setMessages((prev) => [...prev, { sender: "bot", text: "" }]);
 
     for (let i = 0; i < fullText.length; i++) {
@@ -24,6 +31,9 @@ const Chatbox = () => {
         updated[updated.length - 1] = { sender: "bot", text: currentChunk };
         return updated;
       });
+
+
+      bottomRef.current?.scrollIntoView({ behavior: "smooth" });
 
       await new Promise((resolve) => setTimeout(resolve, 20));
     }
@@ -38,18 +48,16 @@ const Chatbox = () => {
     const userMessage = { sender: "user", text: input };
     const userInput = input;
     setInput("");
-
     setMessages((prev) => [...prev, userMessage]);
 
-try {
-  const res = await fetch("https://dzas90cz1w1pi.cloudfront.net/api/chat", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message: userInput }),
-  });
+    try {
+      const res = await fetch("https://dzas90cz1w1pi.cloudfront.net/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userInput }),
+      });
 
       const data = await res.json();
-
       await simulateTyping(data.reply);
     } catch (error) {
       console.error("Chat error:", error);
@@ -88,6 +96,8 @@ try {
                 {msg.text}
               </div>
             ))}
+
+            <div ref={bottomRef} />
           </div>
 
           <form className="chatbox-input" onSubmit={handleSend}>
@@ -95,6 +105,7 @@ try {
               type="text"
               placeholder="Type a message..."
               value={input}
+              disabled={isTyping}
               onChange={(e) => setInput(e.target.value)}
             />
             <button type="submit" disabled={isTyping}>
