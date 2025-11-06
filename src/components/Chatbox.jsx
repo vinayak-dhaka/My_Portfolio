@@ -5,7 +5,7 @@ const Chatbox = () => {
   const [messages, setMessages] = useState([
     {
       sender: "bot",
-      text: "Hey there! 👋 I’m Vinayak’s virtual assistant. How can I help you today?",
+      text: "Hey there!  I’m Vinayak’s virtual assistant. How can I help you today?",
     },
   ]);
   const [input, setInput] = useState("");
