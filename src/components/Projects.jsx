@@ -152,8 +152,8 @@ const projects = [
         icon: "https://skillicons.dev/icons?i=aws",
       },
     ],
-    live: "upcoming",
-    code: "https://github.com/vinayak-dhaka/portfolio",
+    live: "https://www.vinayakdev.in/",
+    code: "https://github.com/vinayak-dhaka/My_Portfolio",
   },
   {
     title: "Dog Behavior Prediction ",
