@@ -42,7 +42,7 @@ const Chatbox = () => {
     setMessages((prev) => [...prev, userMessage]);
 
     try {
-      const res = await fetch("https://dzas90cz1w1pi.cloudfront.net/api/chat", { ... })
+      const res = await fetch("https://dzas90cz1w1pi.cloudfront.net/api/chat")
 , {
         method: "POST",
         headers: { "Content-Type": "application/json" },
