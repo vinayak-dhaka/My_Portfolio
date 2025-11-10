@@ -40,6 +40,7 @@ const projects = [
     ],
     live: "https://faraaway.netlify.app/",
     code: "https://github.com/vinayak-dhaka/FarAway",
+    video: "https://www.youtube.com/watch?v=fKmWAGtVqPo",
   },
   {
     title: "Shoe-Store",
@@ -288,6 +289,16 @@ const Projects = () => {
                     className="btnn"
                   >
                     Live Demo
+                  </a>
+                )}
+                 {project.video && (
+                  <a
+                    href={project.video}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btnn"
+                  >
+                    Video
                   </a>
                 )}
               </div>
