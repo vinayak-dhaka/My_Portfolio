@@ -211,6 +211,7 @@ const projects = [
     ],
     code: "https://github.com/vinayak-dhaka/Kubernetes_phase2",
     live: "https://68000d22b820d52237f84c7d--polite-dieffenbachia-accee2.netlify.app/",
+    video: "https://www.youtube.com/watch?v=N3dZkDTH7Do",
     tag: "Group Project",
   },
 ];
